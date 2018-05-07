@@ -1,0 +1,201 @@
+SBT-raytracer 1.0
+camera {
+    position = (0,.75,4.5);
+    look_at = (0, .5, 1);
+    aspectratio = .9;
+};
+
+
+point_light {
+position = (0,1.47643,-1);
+color = (1, 1, 1);
+constant_attenuation_coeff = 0.2;
+linear_attenuation_coeff = 0.07;
+quadratic_attenuation_coeff = 0.3;
+}
+
+point_light {
+position = (0,1.47643,0);
+color = (1, 1, 1);
+constant_attenuation_coeff = 0.2;
+linear_attenuation_coeff = 0.07;
+quadratic_attenuation_coeff = 0.3;
+}
+
+
+//cube 1
+translate( 
+    -1,0,-2, box {
+  material = { diffuse=(0.73,0.76,.68) };
+});
+
+//cube 2
+rotate(0,1,0,.3,translate( 
+    0.5,0,1, box {
+  material = { diffuse=(0.73,0.76,.9) };
+}));
+
+// ground
+rotate(1,0,0,1.57,translate( 
+    0,0,0.5,
+     scale(10,10,10, square {
+material = { diffuse = 
+(0.7, 0.7, 0.6);
+ambient = (1, 1, 1); }})));
+
+// ceiling
+rotate(1,0,0,1.57,translate( 
+    0,0,-3,
+     scale(10,10,10, square {
+material = { diffuse = 
+(0.7, 0.7, 0.6);
+ambient = (1, 1, 1); }})));
+
+// front wall
+translate( 
+    0,0,-5,
+     scale(10,10,10, square {
+material = { diffuse = 
+(0.7, 0.7, 0.6);
+ambient = (1, 1, 1); }}));
+
+// back wall (behind camera)
+translate( 
+    0,0,5,
+     scale(10,10,10, square {
+material = { diffuse = 
+(0.7, 0.7, 0.6);
+ambient = (1, 1, 1); }}));
+
+// right wall
+translate( 
+    2,0,0,rotate(0,1,0,1.57,
+     scale(10,10,10, square {
+material = { diffuse = 
+(0.7, 0.2, 0.1);
+ambient = (1, 1, 1); }})));
+
+// left wall
+translate( 
+    -2,0,0,rotate(0,1,0,1.57,
+     scale(10,10,10, square {
+material = { diffuse = 
+(0.1, 0.9, 0.3);
+ambient = (1, 1, 1); }})));
+
+/*
+//Red wall (right)
+transform( 
+    (-0.000000, 0.000000, 5.330751, 0.000000), (0.000000, 1.990100, -0.000000, 0.000000), (-4.915000, 0.000000, -0.000000, 0.000000), (1.620366, 0.958740, 1.000271, 1.000000),
+     scale(1,1,1, square {
+material = {
+shininess = 0;
+ambient = (1, 1, 1);
+specular = (0, 0, 0);
+diffuse = (1,0,0);
+reflective = (0, 0, 0);
+transmissive = (0, 0, 0);
+}}));
+
+// Ceiling
+transform( 
+    (4.915000, -0.000000, -0.000000, 0.000000), (-0.000000, -0.000000, -5.516666, 0.000000), (0.000000, 4.915000, -0.000000, 0.000000), (0.223638, 1.865023, 1.155158, 1.000000),
+     scale(1,1,1, square {
+material = {
+shininess = 100;
+ambient = (1,1,1);
+specular = (0,0,0);
+diffuse = (1, 1, 1);
+reflective = (0, 0, 0);
+transmissive = (0, 0, 0);
+}}));
+
+
+
+// behind the camera wall
+transform( 
+    (4.915000, 0.000000, 0.000000, 0.000000), (-0.000000, 1.990100, 0.000000, 0.000000), (0.000000, 0.000000, 4.915000, 0.000000), (-0.000000, 0.958740, 3.554886, 1.000000),
+     scale(1,1,1, square {
+material = { diffuse = (1, 1, 1);
+// material = { diffuse = map("../../../../../../../../../../../../Users/Travis/Desktop/TexturesCom_HDRPanorama005_subway_hdri_sphere_tone_S.jpg");
+}}));
+
+
+//green wall (left)
+transform( 
+    (-0.000000, 0.000000, 6.744302, 0.000000), (0.000000, 1.990100, -0.000000, 0.000000), (-4.915000, 0.000000, -0.000000, 0.000000), (-1.925156, 0.859798, 0.226913, 1.000000),
+     scale(1,1,1, square {
+material = {
+shininess = 100;
+ambient = (1,1,1);
+specular = (0,0,0);
+diffuse = (.1, 1, .1);
+transmissive = (0, 0, 0);
+reflective = (0, 0, 0);
+}}));
+
+
+
+
+
+// blue wall (back)
+transform( 
+    (4.915000, 0.000000, 0.000000, 0.000000), (-0.000000, 1.990100, 0.000000, 0.000000), (0.000000, 0.000000, 4.915000, 0.000000), (-0.000000, 0.958740, -1.274100, 1.000000),
+     scale(1,1,1, square {
+material = {
+shininess = 100;
+ambient = (1,1,1);
+specular = (0, 0, 0);
+diffuse = (0,.3,1);
+transmissive = (0, 0, 0);
+reflective = (0, 0, 0);
+}}));
+
+*/
+
+
+/*
+// front sphere
+
+transform( 
+    (0.588389, 0.000000, 0.000000, 0.000000), (0.000000, 0.588389, 0.000000, 0.000000), (0.000000, 0.000000, 0.588389, 0.000000), (0.821519, 0.300000, 1.169223, 1.000000),
+     scale( 0.5, 0.5, 0.5, sphere {
+material = {
+shininess = 100;
+ambient = (0,0,0);
+specular = (0, 0, 0);
+diffuse = (.2, .9, .57);
+transmissive = (0.0, 0.0, 0.0);
+reflective = (0, 0, 0);
+}})); 
+
+
+// middle sphere
+transform( 
+    (0.588389, 0.000000, 0.000000, 0.000000), (0.000000, 0.588389, 0.000000, 0.000000), (0.000000, 0.000000, 0.588389, 0.000000), (-0.660129, 0.300000, 0.651425, 1.000000),
+     scale( 0.5, 0.5, 0.5, sphere {
+material = {
+shininess = 100;
+ambient = (0,0,0);
+specular = (0,0,0);
+diffuse = (0.87, 0.37, 0.45);
+transmissive = (0.0, 0.0, 0.0);
+reflective = (0, 0, 0);
+index = 1.3;
+}}));
+
+// left sphere
+transform( 
+    (0.371848, 0.000000, 0.000000, 0.000000), (0.000000, 0.371848, 0.000000, 0.000000), (0.000000, 0.000000, 0.371848, 0.000000), (-1.004123, 0.191938, 1.168841, 1.000000),
+     scale( 0.5, 0.5, 0.5, sphere {
+material = {
+shininess = 100;
+ambient = (0,0,0);
+specular = (0,0,0);
+diffuse = (.2, .4, 1);
+transmissive = (0, 0, 0);
+reflective = (0, 0, 0);
+}}));
+
+*/
+
